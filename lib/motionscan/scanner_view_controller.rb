@@ -93,7 +93,7 @@ module Motionscan
       self.session.resume
     end
 
-    def shouldAutorotateToInterfaceOrientatio(interfaceOrientation)
+    def shouldAutorotateToInterfaceOrientation(interfaceOrientation)
       interfaceOrientation == UIInterfaceOrientationPortrait
     end
 
