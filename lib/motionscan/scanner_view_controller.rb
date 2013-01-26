@@ -32,7 +32,7 @@ module Motionscan
       self.scannerView.autoresizesSubviews = true
       self.view.addSubview(self.scannerView)
 
-      self.view.when_tapped { snap}
+      self.view.when_tapped { snap }
     end
 
     def viewDidLoad
