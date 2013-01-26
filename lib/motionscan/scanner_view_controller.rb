@@ -1,46 +1,45 @@
 module Motionscan
 	class ScannerViewController < UIViewController
+    include Flash
 
     attr_accessor :scannerView
     attr_accessor :delegate
-    attr_accessor :flashEnabled
-    attr_accessor :overlay
+    attr_accessor :flashEnabled    
     attr_accessor :session
     attr_accessor :result
+    attr_accessor :overlay
 
     def initWithNibName(nibNameOrNil, bundle:nibBundleOrNil)
       super
-
       self.overlay = OverlayView.alloc.init
+      self.overlay.scanner = self
       self.delegate = self
       self.flashEnabled = true
       self.scannerView = ScannerView.alloc.init
-
-      self.session = MSScannerSession.alloc.initWithScanner(MSScanner.sharedInstance)
-      self.session.scanOptions = MS_RESULT_TYPE_IMAGE
-      self.session.delegate = self
-
       self.result = nil
-
       self
     end
 
     def loadView
       super
+      self.session = MSScannerSession.alloc.initWithScanner(MSScanner.sharedInstance)
+      self.session.scanOptions = MS_RESULT_TYPE_IMAGE
+      self.session.delegate = self
+
       self.scannerView.frame = [[0, 0],self.view.frame[1]]
       self.scannerView.backgroundColor = UIColor.blackColor
       self.scannerView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight
       self.scannerView.autoresizesSubviews = true
       self.view.addSubview(self.scannerView)
 
-      self.view.when_tapped { snapAction }
+      self.view.when_tapped { snap}
     end
 
     def viewDidLoad
       super
       scannerViewLayer = self.scannerView.layer
       scannerViewLayer.setMasksToBounds(true)
-      
+
       captureLayer = self.session.previewLayer
       captureLayer.setFrame(self.scannerView.bounds)
       
@@ -55,52 +54,38 @@ module Motionscan
       self.session.cancel
     end
 
-    def snapAction
+    def snap
+      self.flash if self.flashEnabled
       self.session.snap
       self.session.pause
     end
 
     def session(session, didScan:result)
-      if self.result.nil?
+      if self.result.nil? and !result.nil?
         self.result = result
-        updateOverlay(self.result)
+        self.overlay.session(session, didScan:Result.new(result))
       end
-      #p "did scan"
     end
 
-    def session(scanner, failedToScan:error)
-      updateOverlay(error)
-      p "failed to scan #{error}"
-      #self.stopSpinner
-      self.session.resume
+    def session(session, failedToScan:error)
+      self.overlay.session(session, didScan:error)
     end
 
     def scannerWillSearch(scanner)
-      updateOverlay
-      p "will search"
+      self.overlay.scannerWillSearch(scanner)
     end
 
     def scanner(scanner, didSearchWithResult:result)
-      updateOverlay(result)
-      # self.stopSpinner
-      # if result.nil?
-      #   App.alert "Image not found"
-      # else
-      #   App.alert "Image found #{result.getValue}"
-      # end
-      p "didSearchWithResult"
-      p "Image found #{result.getValue}" unless result.nil?
-      self.session.resume
+      self.overlay.scanner(scanner, didSearchWithResult:Result.new(result))
     end
 
     def shouldAutorotateToInterfaceOrientation(interfaceOrientation)
       interfaceOrientation == UIInterfaceOrientationPortrait
     end
 
-  private
-
-    def updateOverlay(result)
-      self.overlay.send(:update, self, result) unless self.overlay.nil?
+    def resume
+      self.result = nil
+      self.session.resume
     end
 
 	end
