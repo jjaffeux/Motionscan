@@ -38,7 +38,7 @@ if MSDeviceCompatibleWithSDK()
 			NSLog("[MOODSTOCKS SDK] Scanner open error code :" + errorString)
 		end
 	end
-	NSLog("[MOODSTOCKS SDK] Scanner started.")
+	NSLog("[MOODSTOCKS SDK] Scanner initialized.")
 else
 	NSLog("[MOODSTOCKS SDK] Your device is not compatible with the Moodstocks SDK.")
 end
