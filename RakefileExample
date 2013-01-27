@@ -11,8 +11,6 @@ require './lib/motionscan'
 Motion::Project::App.setup do |app|
   app.name = 'Motionscan'
 
-  app.frameworks += ['CoreGraphics', 'AVFoundation', 'CoreVideo', 'CoreMedia', 'QuartzCore', 'ImageIO', 'Accelerate']
-
   app.motionscan.api_key = "xxx"
   app.motionscan.api_secret = "xxx"
 
