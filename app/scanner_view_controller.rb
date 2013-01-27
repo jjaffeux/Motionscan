@@ -1,4 +1,4 @@
-class AnimatedScannerViewController < UIViewController
+class ScannerViewController < UIViewController
 
   def init
     super
