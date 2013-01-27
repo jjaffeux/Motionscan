@@ -38,8 +38,6 @@ module Motionscan
     end
 
     def sync
-      p "sync"
-      p self.scanner.isSyncing
       self.scanner.syncWithDelegate(self) unless self.scanner.isSyncing
     end
 

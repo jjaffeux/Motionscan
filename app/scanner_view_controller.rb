@@ -1,9 +1,10 @@
 class ScannerViewController < Motionscan::ScannerViewController
 
-  def viewDidLoad
+  def initWithNibName(nibNameOrNil, bundle:nibBundleOrNil)
     super
     self.flashEnabled = true
-    p self.flashEnabled
+    self.overlay = DebugOverlayViewExample.alloc.init
+    self.overlay.scanner = self
   end
 
 end
