@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
   s.version     = Motionscan::VERSION
   s.authors     = ["Joffrey Jaffeux"]
   s.email       = ["j.jaffeux@gmail.com"]
-  s.homepage    = "https://github.com/jjaffeux/motionscan"
+  s.homepage    = "https://github.com/jjaffeux/Motionscan"
   s.summary     = "A RubyMotion Moodstocks SDK image recognition wrapper"
   s.description = "A RubyMotion Moodstocks SDK image recognition wrapper"
 
