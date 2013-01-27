@@ -76,6 +76,8 @@ module Motionscan
       @session.pause
     end
 
+  private
+
     # delegates
     def session(session, didScan:result)
       Dispatch::Queue.main.async { 
