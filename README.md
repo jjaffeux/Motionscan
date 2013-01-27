@@ -106,13 +106,13 @@ scanner.snapWithStatus(
   	#search in remote started
   },
   success:lambda {|result|
-  	#scan found and image in remote
+  	#search found and image in remote
   },
   error:lambda {|error|
-  	#scan error
+  	#search error
   },
   notFound:lambda {
-  	#scan didn't find the image in remote
+  	#search didn't find the image in remote
   }
 )
 ```
