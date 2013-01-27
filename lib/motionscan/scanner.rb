@@ -1,5 +1,5 @@
 module Motionscan
-	class Scanner
+  class Scanner
     include Flash
 
     attr_accessor :view
@@ -107,5 +107,5 @@ module Motionscan
       interfaceOrientation == UIInterfaceOrientationPortrait
     end
 
-	end
+  end
 end
