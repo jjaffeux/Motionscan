@@ -139,7 +139,7 @@ Returns the string or the hash (json is converted to a hash) saved with the imag
 {"type":"businessCat", "name":"Carl"}
 ```
 
-You will get the follow ruby hash :
+You will get the following ruby hash :
 ```ruby
 result.data
 # {type:"businessCat", name:"Carl"}
