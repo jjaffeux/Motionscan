@@ -71,7 +71,7 @@ module Motionscan
       @searchError = searchError
       @searchNotFound = searchNotFound
 
-      @flash if @flashEnabled
+      self.flash if @flashEnabled
       @session.snap
       @session.pause
     end
