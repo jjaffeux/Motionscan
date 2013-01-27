@@ -38,18 +38,18 @@ class RootViewController < UIViewController
 
 private
 
-  def addAnimatedExampleScannerViewControllerButton
+  def addScannerViewControllerButton
     scanButton = UIButton.buttonWithType(UIButtonTypeCustom)
     scanButton.frame = [[40,140],[240,40]]
     scanButton.setTitle("Launch Scanner", forState:UIControlStateNormal)
     scanButton.backgroundColor = UIColor.darkGrayColor
     scanButton.addTarget(self,
-      action: :pushAnimatedExampleScannerViewController,
+      action: :pushScannerViewController,
       forControlEvents:UIControlEventTouchUpInside)
     self.view.addSubview(scanButton)
   end
 
-  def pushAnimatedExampleScannerViewController
+  def pushScannerViewController
     scannerController = ScannerViewController.alloc.init
     self.navigationController.pushViewController(scannerController, animated:true)
   end
