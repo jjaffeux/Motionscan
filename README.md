@@ -23,12 +23,12 @@ http://cl.ly/image/3l331E0K0L2P
 Moodstocks is fast because the image processor is fast but also because it allows you to cache image signature, the Sync class allows you to decide when and how you want to sync device cache.
 
 - init
-´´´ruby
+```ruby
 sync = Motionscan::Sync.init
-´´´
+```
 
 - startWithStatus(syncStarted, success:syncCompleted, error:syncFailed, progress:syncProgressed)
-´´´ruby
+```ruby
 sync.startWithStatus(
   lambda {
   },
@@ -39,26 +39,26 @@ sync.startWithStatus(
   progress:lambda {|progress, total|
   }
 )
-´´´
+```
 
 * Motionscan::Scanner
 - initWithFrame(frame)
-´´´ruby
+```ruby
 scanner = Motionscan::Scanner.initWithFrame([[0,0],[320,200]])
-´´´
+```
 
 - frame=(frame)
-´´´ruby
+```ruby
 scanner.frame = [[0,0],[320,200]]
-´´´
+```
 
 - displayScannerInView(view)
-´´´ruby
+```ruby
 scanner.displayScannerInView(self.view)
-´´´
+```
 
 - startWithStatus(scanStarted, success:scanCompleted, error:scanError, notFound:scanNotFound)
-´´´ruby
+```ruby
 scanner.startWithStatus(
   lambda {
   	#scan started
@@ -73,7 +73,7 @@ scanner.startWithStatus(
   	#scan didn't find the image in the cache
   }
 )
-´´´
+```
 
 - stop
 
@@ -82,7 +82,7 @@ scanner.startWithStatus(
 - snapWithStatus(searchStarted, success:searchCompleted,error:searchError,notFound:searchNotFound)
 If an image is not in the cache, you can trigger an API call to search on your account.
 
-´´´ruby
+```ruby
 scanner.snapWithStatus(
   lambda {
   	#search in remote started
@@ -97,7 +97,7 @@ scanner.snapWithStatus(
   	#scan didn't find the image in remote
   }
 )
-´´´
+```
 
 Motionscan::result
 - imageId
