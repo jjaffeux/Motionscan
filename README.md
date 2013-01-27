@@ -2,12 +2,17 @@
 
 Motionscan is a RubyMotion wrapper for the Moodstocks SDK. Moodstocks provide you an incredibly fast and easy tool to add image recognition to your app.
 
+Watch the video to see what you will be able to build in few minutes : http://cl.ly/0Q3K163y3b12
+
 
 # Usage
 - Create an account on moodstocks.com
 - Use Moodstocks image uploader to add images to your account
 - Complete your application Rakefile with RakefileExample (most notably pod and credentials)
 - Look at example to use it in your application
+
+# Not yet pushed to rubygems
+# - add 'motionscan' to your Gemfile
 
 If you want build this application you need to upload images with json attached to images, for example : 
 http://cl.ly/image/3l331E0K0L2P
