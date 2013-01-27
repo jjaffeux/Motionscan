@@ -65,6 +65,10 @@ module Motionscan
       @session.resume
     end
 
+    def pause
+      @session.pause
+    end
+
     def snapWithStatus(searchStarted, success:searchCompleted,error:searchError,notFound:searchNotFound)
       @searchStarted = searchStarted
       @searchCompleted = searchCompleted
