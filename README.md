@@ -80,7 +80,7 @@ scanner.startWithStatus(
 
 If you wish to pause the scanner, and prevent current result to change you can use this method. Use scanner.resume to resume scanning process.
 ```ruby
-scanner.stop
+scanner.pause
 ```
 
 -stop
