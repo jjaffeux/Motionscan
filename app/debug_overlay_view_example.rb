@@ -1,8 +1,4 @@
-module Motionscan
-
-  class OverlayView < UIView
-
-    attr_accessor :scanner
+class DebugOverlayViewExample < Motionscan::OverlayView
 
     def session(session, didScanWithResult:result)
     end
@@ -18,7 +14,5 @@ module Motionscan
 
     def scanner(scanner, didSearchWithResult:result)
     end
-
-  end
 
 end

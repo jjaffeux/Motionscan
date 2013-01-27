@@ -63,7 +63,9 @@ module Motionscan
     def session(session, didScan:result)
       if self.result.nil? and !result.nil?
         self.result = result
-        self.overlay.session(session, didScan:Result.new(result))
+        self.overlay.session(session, didScanWithResult:Result.new(result))
+      else
+        self.overlay.sessionDidScanWithoutResult(session)
       end
     end
 
