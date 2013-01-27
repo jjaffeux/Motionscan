@@ -78,23 +78,27 @@ module Motionscan
 
     # delegates
     def session(session, didScan:result)
-      result.nil? ? @scanNotFound.call : @scanCompleted.call(Result.new(result))
+      Dispatch::Queue.main.async { 
+        result.nil? ? @scanNotFound.call : @scanCompleted.call(Result.new(result))
+      }
     end
 
     def session(session, failedToScan:error)
-      @scanError.call(error)
+      Dispatch::Queue.main.async { @scanError.call(error) }
     end
 
     def scannerWillSearch(scanner)
-      @searchStarted.call
+      Dispatch::Queue.main.async { @searchStarted.call }
     end
 
     def scanner(scanner, didSearchWithResult:result)
-      result.nil? ? @searchNotFound.call : @searchCompleted.call(Result.new(result))
+      Dispatch::Queue.main.async { 
+        result.nil? ? @searchNotFound.call : @searchCompleted.call(Result.new(result))
+      }
     end
 
     def scanner(scanner, failedToSearchWithError:error)
-      @searchError.call(error)
+      Dispatch::Queue.main.async { @searchError.call(error) }
     end
 
     def shouldAutorotateToInterfaceOrientation(interfaceOrientation)

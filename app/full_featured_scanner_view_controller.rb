@@ -1,12 +1,8 @@
-class ScannerViewController < UIViewController
+class FullFeaturedScannerViewController < UIViewController
 
-  def loadView
-    super
+  def viewDidAppear(animated)
     @scanner = Motionscan::Scanner.initWithFrame(self.view.bounds)
     @scanner.displayScannerInView(self.view)
-  end
-
-  def viewDidLoad
     @scanner.startWithStatus(
       lambda {
         p "started"
