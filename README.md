@@ -134,4 +134,13 @@ result.imageId
 result.data
 ```
 
-Returns the string or the hash (json is converted to a hash) saved with the image
+Returns the string or the hash (json is converted to a hash) saved with the image. For example if the follow json is attached to your image :
+```ruby
+{"type":"businessCat", "name":"Carl"}
+```
+
+You will get the follow ruby hash :
+```ruby
+result.data
+# {type:"businessCat", name:"Carl"}
+```
