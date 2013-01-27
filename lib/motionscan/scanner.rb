@@ -2,11 +2,10 @@ module Motionscan
   class Scanner
     include Flash
 
-    attr_accessor :view
     attr_accessor :flashEnabled
-    attr_accessor :session
-    attr_accessor :result
     attr_accessor :frame
+    attr_reader   :session
+    attr_reader   :view
 
     def self.initWithFrame(frame)
       instance = allocate
@@ -18,7 +17,6 @@ module Motionscan
       @frame = frame
       @flashEnabled = true
       @view = UIView.alloc.initWithFrame(frame)
-      @result = nil
     end
 
     def frame=(frame)

@@ -2,7 +2,7 @@ module Motionscan
 
   class Sync
 
-    attr_accessor :scanner
+    attr_reader :scanner
 
     def self.init
       instance = allocate
