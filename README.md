@@ -117,8 +117,9 @@ scanner.snapWithStatus(
 )
 ```
 
-## Motionscan::result
+## Motionscan::Result
 
+Result is simple wrapper arround MSResult, every methods that should return a result, will give an instance of Motionscan::Result.
 
 -imageId
 
@@ -126,6 +127,14 @@ Returns the imageId of the scanned image.
 
 ```ruby
 result.imageId
+```
+
+-msSDKResult
+
+Let you access the raw MSResult
+
+```ruby
+result.msSDKResult
 ```
 
 -data
