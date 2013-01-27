@@ -10,24 +10,22 @@ Watch the video to see what you will be able to build in few minutes : http://cl
 - Use Moodstocks image uploader to add images to your account
 - Complete your application Rakefile with RakefileExample (most notably pod and credentials)
 - Look at example to use it in your application
-
-# Not yet pushed to rubygems
-# - add 'motionscan' to your Gemfile
+- Not yet pushed to rubygems
 
 If you want build this application you need to upload images with json attached to images, for example : 
 http://cl.ly/image/3l331E0K0L2P
 
-
 # Documentation
-* Motionscan::Sync
+## Motionscan::Sync
+    
 Moodstocks is fast because the image processor is fast but also because it allows you to cache image signature, the Sync class allows you to decide when and how you want to sync device cache.
 
-- init
+-init
 ```ruby
 sync = Motionscan::Sync.init
 ```
 
-- startWithStatus(syncStarted, success:syncCompleted, error:syncFailed, progress:syncProgressed)
+-startWithStatus(syncStarted, success:syncCompleted, error:syncFailed, progress:syncProgressed)
 ```ruby
 sync.startWithStatus(
   lambda {
@@ -41,23 +39,25 @@ sync.startWithStatus(
 )
 ```
 
-* Motionscan::Scanner
-- initWithFrame(frame)
+## Motionscan::Scanner
+
+
+-initWithFrame(frame)
 ```ruby
 scanner = Motionscan::Scanner.initWithFrame([[0,0],[320,200]])
 ```
 
-- frame=(frame)
+-frame=(frame)
 ```ruby
 scanner.frame = [[0,0],[320,200]]
 ```
 
-- displayScannerInView(view)
+-displayScannerInView(view)
 ```ruby
 scanner.displayScannerInView(self.view)
 ```
 
-- startWithStatus(scanStarted, success:scanCompleted, error:scanError, notFound:scanNotFound)
+-startWithStatus(scanStarted, success:scanCompleted, error:scanError, notFound:scanNotFound)
 ```ruby
 scanner.startWithStatus(
   lambda {
@@ -75,11 +75,29 @@ scanner.startWithStatus(
 )
 ```
 
-- stop
 
-- resume
+-pause
 
-- snapWithStatus(searchStarted, success:searchCompleted,error:searchError,notFound:searchNotFound)
+If you wish to pause the scanner, and prevent current result to change you can use this method. Use scanner.resume to resume scanning process.
+```ruby
+scanner.stop
+```
+
+-stop
+
+When scanner usage is done you should call this method, usually in viewWillDisappear(animated)
+```ruby
+scanner.stop
+```
+
+-resume
+
+```ruby
+scanner.resume
+```
+
+-snapWithStatus(searchStarted, success:searchCompleted,error:searchError,notFound:searchNotFound)
+
 If an image is not in the cache, you can trigger an API call to search on your account.
 
 ```ruby
@@ -99,9 +117,21 @@ scanner.snapWithStatus(
 )
 ```
 
-Motionscan::result
-- imageId
+## Motionscan::result
+
+
+-imageId
+
 Returns the imageId of the scanned image.
 
-- data
+```ruby
+result.imageId
+```
+
+-data
+
+```ruby
+result.data
+```
+
 Returns the string or the hash (json is converted to a hash) saved with the image
