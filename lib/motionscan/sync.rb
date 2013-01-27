@@ -20,6 +20,8 @@ module Motionscan
       @scanner.syncWithDelegate(self) unless @scanner.isSyncing
     end
 
+  private
+
     def scannerWillSync(scanner)
       @syncStarted.call
     end
