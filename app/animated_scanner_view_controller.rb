@@ -26,15 +26,6 @@ class AnimatedScannerViewController < UIViewController
     )
   end
 
-  # def userDidPressSnapButton
-  #   @scanner.snapWithStatus(
-  #     lambda { },
-  #     success:lambda {|result|},
-  #     error:lambda {|error|},
-  #     notFound:lambda {}
-  #   )
-  # end
-
   def viewWillDisappear(animated)
     @scanner.stop
   end
