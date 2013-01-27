@@ -18,7 +18,7 @@ http://cl.ly/image/3l331E0K0L2P
 # Documentation
 ## Motionscan::Sync
     
-Moodstocks is fast because the image processor is fast but also because it allows you to cache image signature, the Sync class allows you to decide when and how you want to sync device cache.
+Moodstocks is fast because the image processor is fast but also because it allows you to cache image signature, the Sync class allows you to decide when and how you want to sync the device cache.
 
 -init
 ```ruby
@@ -85,7 +85,7 @@ scanner.pause
 
 -stop
 
-When scanner usage is done you should call this method, usually in viewWillDisappear(animated)
+Call this method to terminate the scanner, usually in viewWillDisappear(animated)
 ```ruby
 scanner.stop
 ```
@@ -98,7 +98,7 @@ scanner.resume
 
 -snapWithStatus(searchStarted, success:searchCompleted,error:searchError,notFound:searchNotFound)
 
-If an image is not in the cache, you can trigger an API call to search on your account.
+If an image is not in the cache, you can trigger an API call to search it on your account.
 
 ```ruby
 scanner.snapWithStatus(
@@ -119,7 +119,7 @@ scanner.snapWithStatus(
 
 ## Motionscan::Result
 
-Result is simple wrapper arround MSResult, every methods that should return a result, will give an instance of Motionscan::Result.
+Result is a simple wrapper arround MSResult, every methods that should return a result, will give an instance of Motionscan::Result.
 
 -imageId
 
@@ -143,7 +143,7 @@ result.msSDKResult
 result.data
 ```
 
-Returns the string or the hash (json is converted to a hash) saved with the image. For example if the follow json is attached to your image :
+Returns the string or the hash (json is converted to a hash) saved with the image. For example if the following json is attached to your image :
 ```ruby
 {"type":"businessCat", "name":"Carl"}
 ```
