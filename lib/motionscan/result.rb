@@ -2,6 +2,8 @@ module Motionscan
 
   class Result
 
+    attr_reader :msSDKResult
+
     def initialize(msSDKResult)
       @msSDKResult = msSDKResult
     end
@@ -14,7 +16,7 @@ module Motionscan
       error_ptr = Pointer.new(:object)
 
       options = NSJSONReadingMutableContainers | NSJSONReadingMutableLeaves | NSJSONReadingAllowFragments
-      json = NSJSONSerialization.JSONObjectWithData(MSResult.dataFromBase64URLString(@msSDKResult.getValue),
+      json = NSJSONSerialization.JSONObjectWithData(base64URLString,
         options:options,
         error:error_ptr)
 
@@ -25,7 +27,11 @@ module Motionscan
   private
 
     def decodeImageBase64URLString
-      NSString.alloc.initWithData(MSResult.dataFromBase64URLString(@msSDKResult.getValue), encoding:NSUTF8StringEncoding)
+      NSString.alloc.initWithData(base64URLString, encoding:NSUTF8StringEncoding)
+    end
+
+    def base64URLString
+      MSResult.dataFromBase64URLString(@msSDKResult.getValue)
     end
 
   end
