@@ -16,6 +16,7 @@ Watch the video to see what you will be able to build in few minutes : http://cl
 - Complete your application Rakefile with RakefileExample (most notably pod and credentials)
 - Look at /app to use it in your application
 - add "motionscan" in your Gemfile or install : gem install motionscan
+- add require 'motionscan' in your Rakefile before Motion::Project::App.setup...
 
 If you want build this application you need to upload images with json attached to images, for example : 
 http://cl.ly/image/3l331E0K0L2P
