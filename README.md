@@ -115,12 +115,12 @@ scanner.stop
 scanner.resume
 ```
 
--snapWithStatus(searchStarted, success:searchCompleted, error:searchError, notFound:searchNotFound)
+-searchWithStatus(searchStarted, success:searchCompleted, error:searchError, notFound:searchNotFound)
 
 If an image is not in the cache, you can trigger an API call to search it on your account.
 
 ```ruby
-scanner.snapWithStatus(
+scanner.searchWithStatus(
   lambda {
   	#search in remote started
   },
