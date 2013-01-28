@@ -105,9 +105,5 @@ module Motionscan
       Dispatch::Queue.main.async { @searchError.call(error) }
     end
 
-    def shouldAutorotateToInterfaceOrientation(interfaceOrientation)
-      interfaceOrientation == UIInterfaceOrientationPortrait
-    end
-
   end
 end
