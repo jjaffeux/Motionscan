@@ -15,7 +15,7 @@ Watch the video to see what you will be able to build in few minutes : http://cl
 - Use Moodstocks image uploader to add images to your account
 - Complete your application Rakefile with RakefileExample (most notably pod and credentials)
 - Look at /app to use it in your application
-- Not yet pushed to rubygems, you have to build the gem and link to it from your Gemfile
+- add "motionscan" in your Gemfile or install : gem install motionscan
 
 If you want build this application you need to upload images with json attached to images, for example : 
 http://cl.ly/image/3l331E0K0L2P
