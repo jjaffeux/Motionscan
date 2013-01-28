@@ -1,3 +1,6 @@
+[![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/jjaffeux/Motionscan)
+
+
 # Description
 
 Motionscan is a RubyMotion wrapper for the Moodstocks SDK. Moodstocks provide an incredibly fast and easy tool to add image recognition to your app.
