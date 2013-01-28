@@ -32,12 +32,19 @@ sync = Motionscan::Sync.init
 ```ruby
 sync.startWithStatus(
   lambda {
+    # sync started
   },
   success:lambda {|result|
+    # sync finished
+    # Motionscan::Result instance
   },
   error:lambda {|error|
+    # an error occured while syncing
+    # NSError
   },
   progress:lambda {|progress, total|
+    # progress : current number of cached items
+    # total : number of items to cache
   }
 )
 ```
@@ -64,16 +71,23 @@ scanner.displayScannerInView(self.view)
 ```ruby
 scanner.startWithStatus(
   lambda {
-  	#scan started
+  	# scan started
+    # will fire once at the beginning
+    # from this point everything captured 
+    # by the video will be scanned
   },
   success:lambda {|result|
-  	#scan found and image in the cache
+  	# scan found and image in the cache
+    # Motionscan::Result instance
   },
   error:lambda {|error|
-  	#scan error
+  	# scan error
+    # NSError 
   },
   notFound:lambda {
-  	#scan didn't find the image in the cache
+  	# scan didn't find the image in the cache
+    # you shouldn't do anything expensive here
+    # as it will fire very frequently
   }
 )
 ```
@@ -88,7 +102,7 @@ scanner.pause
 
 -stop
 
-Call this method to terminate the scanner, usually in viewWillDisappear(animated)
+Call this method to terminate the scanner, usually in viewWillDisappear(animated). /!\ You have to call it at some point or pushing a new UIViewController and going back to this one, will crash the app.
 ```ruby
 scanner.stop
 ```
@@ -99,7 +113,7 @@ scanner.stop
 scanner.resume
 ```
 
--snapWithStatus(searchStarted, success:searchCompleted,error:searchError,notFound:searchNotFound)
+-snapWithStatus(searchStarted, success:searchCompleted, error:searchError, notFound:searchNotFound)
 
 If an image is not in the cache, you can trigger an API call to search it on your account.
 
@@ -122,7 +136,7 @@ scanner.snapWithStatus(
 
 ## Motionscan::Result
 
-Result is a simple wrapper arround MSResult, every methods that should return a result, will give an instance of Motionscan::Result.
+Result is a simple wrapper arround MSResult, every methods that should return a result will give an instance of Motionscan::Result.
 
 -imageId
 
