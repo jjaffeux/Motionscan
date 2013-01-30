@@ -7,6 +7,9 @@ Motionscan is a RubyMotion wrapper for the Moodstocks SDK. Moodstocks provide an
 
 Watch the video to see what you will be able to build in few minutes : http://cl.ly/0Q3K163y3b12
 
+http://blog.rubymotion.com/post/41861021757/scan-barcodes-and-images-with-moodstocks-and-rubymotion
+http://www.moodstocks.com/2013/01/30/image-recognition-in-rubymotion-with-the-moodstocks-sdk/
+
 
 # Usage
 - Create an account on moodstocks.com
@@ -18,6 +21,8 @@ Watch the video to see what you will be able to build in few minutes : http://cl
 
 If you want build this application you need to upload images with json attached to images, for example : 
 http://cl.ly/image/3l331E0K0L2P
+
+Look the standalone demo app for more informations : https://github.com/jjaffeux/TestMotionscan
 
 # Documentation
 ## Motionscan::Sync
