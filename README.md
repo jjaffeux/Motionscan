@@ -147,14 +147,6 @@ Returns the imageId of the scanned image.
 result.imageId
 ```
 
--msSDKResult
-
-Let you access the raw MSResult
-
-```ruby
-result.msSDKResult
-```
-
 -data
 
 ```ruby

@@ -2,8 +2,6 @@ module Motionscan
 
   class Result
 
-    attr_reader :msSDKResult
-
     def initialize(msSDKResult)
       @msSDKResult = msSDKResult
     end
